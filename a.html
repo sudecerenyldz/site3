@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<style>
+    .ust-ana-alan {
+    max-width: 1450px;
+    height: 550px;
+    border-radius: 40px;
+    background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)),
+    url("images/pexels-galerieb-1209972.jpg");
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.2);
+    overflow: hidden;
+    margin: 0 auto;
+    width: 96%;
+    position: relative;
+}
+
+.sol-mavi-panel {
+    width: 400px;
+    height: 100%;
+    background: rgba(13,13,53,0.6);
+    backdrop-filter: blur(8px);
+    padding: 30px;
+    z-index: 2;
+}
+
+.slider-track {
+    height: 6px;
+    background: #ffffff;   /* ANA ÇUBUK BEYAZ */
+    border-radius: 10px;
+    position: relative;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.slider-track::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    background: #007bff;  /* KAYAN YER MAVİ */
+    border-radius: 10px;
+    left: var(--left, 0%);
+    right: var(--right, 0%);
+    z-index: 1;
+}
+
+.range-min,
+.range-max {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    background: none;
+    appearance: none;
+    -webkit-appearance: none;
+    margin: 0;
+    z-index: 2;
+}
+
+.range-min::-webkit-slider-thumb,
+.range-max::-webkit-slider-thumb {
+    pointer-events: auto;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+
+@media (max-width: 991px) {
+    .ust-ana-alan {flex-direction: column;height:auto;}
+    .sol-mavi-panel {width:100%;padding:40px 20px;}
+    .ust-ana-alan h1 {font-size:2rem;padding:40px 10px;}
+}
+ .div-altsayfa {
+            padding: 50px 0px; 
+            font-family: 'Fira Sans', sans-serif; 
+        }
+
+        .div-container {
+            max-width: 1140px; 
+            margin: 0 auto;
+            padding: 0 15px; 
+        }
+
+        .section-header-wrap {
+            margin-bottom: 40px;
+            text-align: left; 
+        }
+
+        .house-viewing-header {
+            font-family: 'Urbanist', sans-serif; 
+            font-size: 30px; 
+            color: #005283; 
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            line-height: 1.2;
+            display: inline-block;
+            position: relative;
+        }
+
+        .header-line {
+            width: 100%; /* Çizgiyi kapsayıcı kadar genişlettim */
+            height: 3px;
+            background-color: #000000; 
+            display: block;
+            margin-top: 5px;
+        }
+
+        .row-vision {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+
+        .col-vision-4 {
+            flex: 0 0 33.333%;
+            max-width: 380px; 
+            padding: 0 15px; 
+            margin-bottom: 45px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .img-lazy {
+            width: 280px; 
+            height: 185.94px; 
+            margin: 0 0 15px 0; 
+            object-fit: cover;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 4px; 
+        }
+
+        .tip-heading-vision {
+            font-family: 'Urbanist', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #0077b6; 
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .tip-text-vision {
+            font-family: 'Urbanist', sans-serif; 
+            font-size: 14px; 
+            color: #444444; 
+            line-height: 1.6;
+            margin: 0 0 10px 0; 
+            text-align: center;
+        }
+
+        .bottom-banner-wrap {
+            margin: 20px 0 50px 0; /* Banner altı boşluk eklendi */
+        }
+
+        .img-banner-full {
+            width: 1110px; 
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 991px) { .col-vision-4 { flex: 0 0 50%; max-width: 50%; } }
+        @media (max-width: 767px) { .col-vision-4 { flex: 0 0 100%; max-width: 100%; } }
+          :root {
+            --main-blue: #005283;
+            --main-yellow: #FFC121;
+            --light-blue: #0082ba;
+            --bg-gray: #f4f4f4;
+        }
+
+        body {
+            font-family: 'Encode Sans Condensed', sans-serif;
+            
+            margin: 0;
+            padding: 40px 10px;
+       
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 1250px;
+            justify-content: center;
+        }
+
+        .property-card {
+            width: 384px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        /* Görsel Alanı */
+        .main-img { width: 100%; height: 230px; object-fit: cover; display: block; }
+        
+        .thumb-row {
+            display: flex;
+            height: 85px;
+            gap: 2px;
+            background: #fff;
+            border-bottom: 1px solid #eee;
+        }
+
+        .thumb { flex: 1; position: relative; overflow: hidden; }
+        .thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+        .video-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255,255,255,0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--main-blue);
+        }
+
+        /* Fiyat ve Siyah İkonlar */
+        .price-bar {
+            background-color: var(--main-yellow);
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .specs { display: flex; gap: 12px; color: #000; }
+        .specs div { display: flex; align-items: center; gap: 5px; font-size: 15px; }
+        .specs i { color: #000; font-size: 17px; }
+
+        /* Yazılar */
+        .details { padding: 15px; }
+        .meta-info { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 14px; }
+        .status { color: var(--main-yellow); font-weight: bold; }
+        .ref { color: #777; font-weight: bold; }
+        h3 { margin: 0 0 5px 0; font-size: 18px; line-height: 1.2; height: 45px; overflow: hidden; color: #333; }
+        .loc { font-weight: 700; margin-bottom: 15px; color: #000; }
+
+        /* Butonlar */
+        .btn-full {
+            width: 100%;
+            background: var(--main-blue);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 17px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .btn-group { display: flex; gap: 8px; }
+        .btn-offer, .btn-view {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        .btn-offer { background: var(--light-blue); color: white; }
+        .btn-view { background: var(--main-yellow); color: black; }
+
+        .footer-info { text-align: center; margin-top: 15px; font-size: 14px; }
+        .footer-info a { text-decoration: none; color: var(--main-blue); font-weight: bold; display: block; margin-top: 4px; }
+        .heart { color: var(--main-yellow); margin-right: 5px; }
+
+</style>
+<body>
+    <body>
+   <div class="container-fluid px-1 mt-4">
+<div class="ust-ana-alan mx-auto d-flex">
+
+<div class="sol-mavi-panel d-flex align-items-center justify-content-center">
+<div class="form-ic-kapsayici text-white" style="width:350px;">
+
+<h2 class="fw-bold mb-1">Find Your Ideal</h2>
+<p class="opacity-75 mb-3">Home & Investment</p>
+
+<div class="form-check mb-1">
+<input class="form-check-input" type="checkbox">
+<label class="form-check-label small">New Build Only</label>
+</div>
+
+<div class="form-check mb-1">
+<input class="form-check-input" type="checkbox">
+<label class="form-check-label small">Resale Only</label>
+</div>
+
+<div class="form-check mb-1">
+<input class="form-check-input" type="checkbox">
+<label class="form-check-label small">Custom Build Only</label>
+</div>
+
+<div class="form-check mb-3">
+<input class="form-check-input" type="checkbox">
+<label class="form-check-label small text-warning fw-semibold">
+Only show listings with A Video Tour
+</label>
+</div>
+
+<select class="form-select form-select-sm rounded-pill mb-2">
+<option>Select City</option>
+</select>
+
+<select class="form-select form-select-sm rounded-pill mb-2">
+<option>Select Type</option>
+</select>
+
+<input type="text" class="form-control form-control-sm rounded-pill mb-3" placeholder="Project Name">
+
+<div class="small fw-semibold mb-1">
+Price range : <span id="price-display"></span>
+</div>
+
+<div class="slider-track mb-4">
+<input type="range" class="range-min" min="110000" max="470000" value="110000">
+<input type="range" class="range-max" min="110000" max="470000" value="470000">
+</div>
+
+<button class="btn btn-warning w-100 py-2 fw-bold" style="border-radius:12px;color:#0d0d35;">
+Find Properties
+</button>
+
+</div>
+</div>
+
+<div class="flex-fill d-flex align-items-center justify-content-center text-center">
+<h1 class="text-white fw-bold display-4 px-4">House Viewing Tips</h1>
+</div>
+
+</div>
+</div>
+
+<script>
+
+const minRange = document.querySelector(".range-min");
+const maxRange = document.querySelector(".range-max");
+const priceDisplay = document.getElementById("price-display");
+const track = document.querySelector(".slider-track");
+
+const minLimit = 110000;
+const maxLimit = 470000;
+const gap = 10000;
+
+function updateSlider(){
+let min = parseInt(minRange.value);
+let max = parseInt(maxRange.value);
+
+if (max - min <= gap) {
+if (this === minRange) minRange.value = max - gap;
+else maxRange.value = min + gap;
+min = minRange.value;
+max = maxRange.value;
+}
+
+priceDisplay.textContent = `€ ${min.toLocaleString()} - € ${max.toLocaleString()}`;
+
+let left = ((min - minLimit) / (maxLimit - minLimit)) * 100;
+let right = 100 - ((max - minLimit) / (maxLimit - minLimit)) * 100;
+
+track.style.setProperty("--left", left + "%");
+track.style.setProperty("--right", right + "%");
+}
+
+minRange.addEventListener("input", updateSlider);
+maxRange.addEventListener("input", updateSlider);
+updateSlider();
+
+</script>
+
+    <section class="div-altsayfa">
+    <div class="div-container">
+        <div class="section-header-wrap">
+            <h2 class="house-viewing-header">House Viewing Tips</h2>
+            <span class="header-line"></span>
+        </div>
+        
+        <div class="row-vision">
+            <div class="col-vision-4">
+                <img src="https://www.visionturkishproperties.com/Content/userfiles/images/Drive-by.jpg" class="img-lazy">
+                <div class="tip-heading-vision">DRIVE BY</div>
+                <p class="tip-text-vision">First impressions shouldn't be underestimated. Even before the viewing, you should go and see the property from the outside.</p>
+            </div>
+            <div class="col-vision-4">
+                <img src="https://www.visionturkishproperties.com/Content/userfiles/images/what-to-look-for-when-shopping-for-homes-c2773a.jpg" class="img-lazy">
+                <div class="tip-heading-vision">BE PREPARED</div>
+                <p class="tip-text-vision">Make a list of all the things that are important to you and any questions you want to ask.</p>
+            </div>
+            <div class="col-vision-4">
+                <img src="https://www.visionturkishproperties.com/Content/userfiles/images/GettyImages-1144543928-bab0284a74f343c1b1214a8608d516b6.jpg" class="img-lazy">
+                <div class="tip-heading-vision">TAKE A FRIEND</div>
+                <p class="tip-text-vision">Never go to a viewing alone. Either take a partner, friend or attend with an agent.</p>
+            </div>
+            <div class="col-vision-4">
+                <img src="https://www.visionturkishproperties.com/Content/userfiles/images/Check-Property-1.jpg" class="img-lazy">
+                <div class="tip-heading-vision">CHECK THE OUTSIDE</div>
+                <p class="tip-text-vision">Are there any signs of damp like peeling paint or tide marks on the walls?</p>
+            </div>
+            <div class="col-vision-4">
+                <img src="https://www.visionturkishproperties.com/Content/userfiles/images/questions-to-ask-viewing.jpg" class="img-lazy">
+                <div class="tip-heading-vision">BE THOROUGH</div>
+                <p class="tip-text-vision">Check all fixed cupboards, especially under the sink. No one will blame you for being nosy.</p>
+            </div>
+            <div class="col-vision-4">
+                <img src="https://www.visionturkishproperties.com/Content/userfiles/images/plumbing-inspection.jpeg" class="img-lazy">
+                <div class="tip-heading-vision">CHECK THE PLUMBING</div>
+                <p class="tip-text-vision">How long does it take the hot water to come through? Does the air conditioning work?</p>
+            </div>
+        </div>
+
+        <div class="bottom-banner-wrap">
+            <img src="https://www.visionturkishproperties.com/Content/userfiles/images/Banners/2.png" class="img-banner-full" alt="Vision Properties Banner">
+        </div>
+
+        <div class="row-vision">
+            <div class="col-vision-4">
+                <img src="https://www.visionturkishproperties.com/Content/userfiles/images/bill-clipart-electricity-bill-3.png" class="img-lazy">
+                <div class="tip-heading-vision">CHECK THE BILLS</div>
+                <p class="tip-text-vision">Ask to see utility and council tax bills so you know what costs to expect.</p>
+            </div>
+            <div class="col-vision-4">
+                <img src="https://www.visionturkishproperties.com/Content/userfiles/images/maxresdefault.jpg" class="img-lazy">
+                <div class="tip-heading-vision">WHAT'S INCLUDED?</div>
+                <p class="tip-text-vision">Ask what fixtures and fittings the owners will be leaving behind.</p>
+            </div>
+            <div class="col-vision-4">
+                <img src="https://www.visionturkishproperties.com/Content/userfiles/images/Home-renovation.jpg" class="img-lazy">
+                <div class="tip-heading-vision">WHAT WORK HAS BEEN DONE?</div>
+                <p class="tip-text-vision">Ask about modifications and request copies of receipts and habitation certificates.</p>
+            </div>
+            <div class="col-vision-4">
+                <img src="https://www.visionturkishproperties.com/Content/userfiles/images/moisture-in-the-house.jpeg" class="img-lazy">
+                <div class="tip-heading-vision">LOOK OUT FOR DAMP</div>
+                <p class="tip-text-vision">Keep an eye out for peeling paint, stains on walls, and steamed up windows.</p>
+            </div>
+        </div>
+    </div>
+    
+<div class="container">
+
+    <div class="property-card">
+        <img src="https://www.visionturkishproperties.com/content/userfiles/images/resources/Images/Estate/Medium/saygin-exclusive-8728.png" class="main-img">
+        <div class="thumb-row">
+            <div class="thumb"><img src="https://www.visionturkishproperties.com/content/userfiles/images/resources/Images/Estate/Small/saygin-exclusive-8728.png"></div>
+            <div class="thumb">
+                <a href="https://www.youtube.com/watch?v=jZ4M2QP7jKc" class="video-overlay">
+                    <i class="fa-regular fa-circle-play" style="font-size: 22px;"></i>
+                    <span style="font-size: 11px; font-weight: bold;">Watch Video</span>
+                </a>
+            </div>
+            <div class="thumb"><img src="https://www.visionturkishproperties.com/content/userfiles/images/resources/Images/Estate/Small/saygin-exclusive-4132.png"></div>
+        </div>
+        <div class="price-bar">
+            <span>€ 245,000</span>
+            <div class="specs">
+                <div>2 <i class="fa-solid fa-bed"></i></div>
+                <div>1 <i class="fa-solid fa-bath"></i></div>
+                <div>1 <i class="fa-solid fa-couch"></i></div>
+            </div>
+        </div>
+        <div class="details">
+            <div class="meta-info"><span class="status">New Build</span><span class="ref">Ref : 714891</span></div>
+            <h3>Saygın Exclusive: Modern Seaside Apartments in Altinkum</h3>
+            <p class="loc">Didim, Aydın</p>
+            <button class="btn-full">VIEW FULL DETAILS</button>
+            <div class="btn-group">
+                <button class="btn-offer">Make An Offer</button>
+                <button class="btn-view">Arrange a Viewing</button>
+            </div>
+            <div class="footer-info">
+                <span><i class="fa-regular fa-heart heart"></i> Save to Shortlist</span>
+                <a href="tel:+905325660366">+90 532 566 0366</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="property-card">
+        <img src="https://www.visionturkishproperties.com/content/userfiles/images/resources/Images/Estate/Medium/0-6-4645.png" class="main-img">
+        <div class="thumb-row">
+            <div class="thumb"><img src="https://www.visionturkishproperties.com/content/userfiles/images/resources/Images/Estate/Small/0-6-4645.png"></div>
+            <div class="thumb"><img src="https://www.visionturkishproperties.com/content/userfiles/images/resources/Images/Estate/Big/0-6-9159.png"></div>
+            <div class="thumb"><img src="https://www.visionturkishproperties.com/content/userfiles/images/resources/Images/Estate/Big/0-6-2928.png"></div>
+        </div>
+        <div class="price-bar">
+            <span>€ 200,000</span>
+            <div class="specs">
+                <div>2 <i class="fa-solid fa-bed"></i></div>
+                <div>1 <i class="fa-solid fa-bath"></i></div>
+                <div>1 <i class="fa-solid fa-couch"></i></div>
+            </div>
+        </div>
+        <div class="details">
+            <div class="meta-info"><span class="status">Re Sale</span><span class="ref">Ref : 384919</span></div>
+            <h3>2 Bed Apartment in the Magnificent Complex Altinkum</h3>
+            <p class="loc">Didim, Aydın</p>
+            <button class="btn-full">VIEW FULL DETAILS</button>
+            <div class="btn-group">
+                <button class="btn-offer">Make An Offer</button>
+                <button class="btn-view">Arrange a Viewing</button>
+            </div>
+            <div class="footer-info">
+                <span><i class="fa-regular fa-heart heart"></i> Save to Shortlist</span>
+                <a href="tel:+905325660366">+90 532 566 0366</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="property-card">
+        <img src="https://www.visionturkishproperties.com/content/userfiles/images/resources/Images/Estate/Medium/sea-view-semi-detached-5-bed-villa-in-mavisehir-8166.jpg" class="main-img">
+        <div class="thumb-row">
+            <div class="thumb"><img src="https://www.visionturkishproperties.com/content/userfiles/images/resources/Images/Estate/Small/sea-view-semi-detached-5-bed-villa-in-mavisehir-8166.jpg"></div>
+            <div class="thumb"><img src="https://www.visionturkishproperties.com/content/userfiles/images/resources/Images/Estate/Big/sea-view-semi-detached-5-bed-villa-in-mavisehir-8100.jpg"></div>
+            <div class="thumb"><img src="https://www.visionturkishproperties.com/content/userfiles/images/resources/Images/Estate/Small/sea-view-semi-detached-5-bed-villa-in-mavisehir-8009.jpg"></div>
+        </div>
+        <div class="price-bar">
+            <span>€ 220,000</span>
+            <div class="specs">
+                <div>5 <i class="fa-solid fa-bed"></i></div>
+                <div>2 <i class="fa-solid fa-bath"></i></div>
+                <div>1 <i class="fa-solid fa-couch"></i></div>
+            </div>
+        </div>
+        <div class="details">
+            <div class="meta-info"><span class="status">Re Sale</span><span class="ref">Ref : 591806</span></div>
+            <h3>Semi-detached 5 Bed Villa In Mavişehir with Sea View</h3>
+            <p class="loc">Mavişehir, Didim, Aydın</p>
+            <button class="btn-full">VIEW FULL DETAILS</button>
+            <div class="btn-group">
+                <button class="btn-offer">Make An Offer</button>
+                <button class="btn-view">Arrange a Viewing</button>
+            </div>
+            <div class="footer-info">
+                <span><i class="fa-regular fa-heart heart"></i> Save to Shortlist</span>
+                <a href="tel:+905325660366">+90 532 566 0366</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+</section>
+</body>
+</html>

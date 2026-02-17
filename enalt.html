@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turkish Properties - Bootstrap Tasarım</title>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        :root {
+            --main-blue: #005283;
+            --main-yellow: #FFC121;
+            --light-blue: #0082ba;
+            --bg-gray: #f4f4f4;
+        }
+
+        body {
+            font-family: 'Urbanist', sans-serif;
+            background-color: var(--bg-gray);
+            padding: 40px 0;
+        }
+
+        /* Hizalama için üst kısımla uyumlu container */
+        .main-wrapper {
+            max-width: 1110px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            color: var(--main-blue);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 28px;
+        }
+
+        .property-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 100%;
+        }
+
+        .main-img { width: 100%; height: 230px; object-fit: cover; }
+        
+        .thumb-row {
+            display: flex;
+            height: 85px;
+            gap: 2px;
+            background: #fff;
+            border-bottom: 1px solid #eee;
+        }
+
+        .thumb { flex: 1; position: relative; overflow: hidden; }
+        .thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+        .video-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255,255,255,0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--main-blue);
+        }
+
+        /* Orijinal Sarı Fiyat Barı */
+        .price-bar {
+            background-color: var(--main-yellow);
+            padding: 10px 15px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .specs div { display: flex; align-items: center; gap: 5px; font-size: 15px; color: #000; font-weight: 600; }
+        .specs i { font-size: 17px; }
+
+        .details { padding: 15px; }
+        .status { color: var(--main-yellow); font-weight: 800; }
+        .ref { color: #777; font-weight: 800; }
+        
+        h3 { 
+            margin: 0 0 5px 0; 
+            font-size: 17px; 
+            line-height: 1.2; 
+            height: 45px; 
+            overflow: hidden; 
+            color: #333; 
+            font-weight: 600;
+        }
+
+        .loc { font-weight: 800; margin-bottom: 15px; color: #000; font-size: 15px; }
+
+        /* Orijinal Lacivert Buton */
+        .btn-full {
+            background: var(--main-blue);
+            color: white;
+            font-weight: 800;
+            font-size: 17px;
+            border: none;
+            transition: opacity 0.3s;
+        }
+        .btn-full:hover { color: white; opacity: 0.9; }
+
+        .btn-offer { background: var(--light-blue); color: white; font-size: 13px; font-weight: 800; border: none; }
+        .btn-view { background: var(--main-yellow); color: black; font-size: 13px; font-weight: 800; border: none; }
+
+        .footer-info { font-weight: 600; }
+        .footer-info a { text-decoration: none; color: var(--main-blue); font-weight: 800; }
+        .heart { color: var(--main-yellow); }
+    </style>
+</head>
+<body>
+
+<div class="container main-wrapper">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h2 class="section-title">RECOMMENDED TURKISH PROPERTIES FOR YOU</h2>
+        </div>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="property-card">
+                <img src="https://www.visionturkishproperties.com/content/userfiles/images/resources/Images/Estate/Medium/saygin-exclusive-8728.png" class="main-img">
+                <div class="thumb-row">
+                    <div class="thumb"><img src="https://www.visionturkishproperties.com/content/userfiles/images/resources/Images/Estate/Small/saygin-exclusive-8728.png"></div>
+                    <div class="thumb">
+                        <a href="#" class="video-overlay">
+                            <i class="fa-regular fa-circle-play fs-4"></i>
+                            <span style="font-size: 10px; font-weight: 800;">Watch Video</span>
+                        </a>
+                    </div>
+                    <div class="thumb"><img src="https://www.visionturkishproperties.com/content/userfiles/images/resources/Images/Estate/Small/saygin-exclusive-4132.png"></div>
+                </div>
+                
+                <div class="price-bar d-flex justify-content-between align-items-center">
+                    <span>€ 245,000</span>
+                    <div class="specs d-flex gap-2">
+                        <div>2 <i class="fa-solid fa-bed"></i></div>
+                        <div>1 <i class="fa-solid fa-bath"></i></div>
+                        <div>1 <i class="fa-solid fa-couch"></i></div>
+                    </div>
+                </div>
+
+                <div class="details text-start">
+                    <div class="meta-info d-flex justify-content-between mb-2 small">
+                        <span class="status">New Build</span>
+                        <span class="ref">Ref : 714891</span>
+                    </div>
+                    <h3>Saygın Exclusive: Modern Seaside Apartments in Altinkum with Breathtaking Views</h3>
+                    <p class="loc">Didim, Didim, Aydın</p>
+                    
+                    <button class="btn btn-full w-100 py-2 mb-2">VIEW FULL DETAILS</button>
+                    <div class="row gx-2 mb-3">
+                        <div class="col-6"><button class="btn btn-offer w-100 py-2">Make An Offer</button></div>
+                        <div class="col-6"><button class="btn btn-view w-100 py-2">Arrange a Viewing</button></div>
+                    </div>
+                    
+                    <div class="footer-info text-center small">
+                        <span class="d-block mb-1"><i class="fa-regular fa-heart heart me-1"></i> Save to Shortlist</span>
+                        <a href="tel:+905325660366">+90 532 566 0366</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="property-card">
+                <img src="https://www.visionturkishproperties.com/content/userfiles/images/resources/Images/Estate/Medium/0-6-4645.png" class="main-img">
+                <div class="thumb-row">
+                    <div class="thumb"><img src="https://www.visionturkishproperties.com/content/userfiles/images/resources/Images/Estate/Small/0-6-4645.png"></div>
+                    <div class="thumb"><img src="https://www.visionturkishproperties.com/content/userfiles/images/resources/Images/Estate/Big/0-6-9159.png"></div>
+                    <div class="thumb"><img src="https://www.visionturkishproperties.com/content/userfiles/images/resources/Images/Estate/Big/0-6-2928.png"></div>
+                </div>
+                
+                <div class="price-bar d-flex justify-content-between align-items-center">
+                    <span>€ 200,000</span>
+                    <div class="specs d-flex gap-2">
+                        <div>2 <i class="fa-solid fa-bed"></i></div>
+                        <div>1 <i class="fa-solid fa-bath"></i></div>
+                        <div>1 <i class="fa-solid fa-couch"></i></div>
+                    </div>
+                </div>
+
+                <div class="details text-start">
+                    <div class="meta-info d-flex justify-content-between mb-2 small">
+                        <span class="status">Re Sale</span>
+                        <span class="ref">Ref : 384919</span>
+                    </div>
+                    <h3>2 Bed Apartment in the Magnificent Complex Altinkum, Didim, Aydın</h3>
+                    <p class="loc">Altinkum, Didim, Aydın</p>
+                    
+                    <button class="btn btn-full w-100 py-2 mb-2">VIEW FULL DETAILS</button>
+                    <div class="row gx-2 mb-3">
+                        <div class="col-6"><button class="btn btn-offer w-100 py-2">Make An Offer</button></div>
+                        <div class="col-6"><button class="btn btn-view w-100 py-2">Arrange a Viewing</button></div>
+                    </div>
+                    
+                    <div class="footer-info text-center small">
+                        <span class="d-block mb-1"><i class="fa-regular fa-heart heart me-1"></i> Save to Shortlist</span>
+                        <a href="tel:+905325660366">+90 532 566 0366</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="property-card">
+                <img src="https://www.visionturkishproperties.com/content/userfiles/images/resources/Images/Estate/Medium/sea-view-semi-detached-5-bed-villa-in-mavisehir-8166.jpg" class="main-img">
+                <div class="thumb-row">
+                    <div class="thumb"><img src="https://www.visionturkishproperties.com/content/userfiles/images/resources/Images/Estate/Small/sea-view-semi-detached-5-bed-villa-in-mavisehir-8166.jpg"></div>
+                    <div class="thumb"><img src="https://www.visionturkishproperties.com/content/userfiles/images/resources/Images/Estate/Big/sea-view-semi-detached-5-bed-villa-in-mavisehir-8100.jpg"></div>
+                    <div class="thumb"><img src="https://www.visionturkishproperties.com/content/userfiles/images/resources/Images/Estate/Small/sea-view-semi-detached-5-bed-villa-in-mavisehir-8009.jpg"></div>
+                </div>
+                
+                <div class="price-bar d-flex justify-content-between align-items-center">
+                    <span>€ 220,000</span>
+                    <div class="specs d-flex gap-2">
+                        <div>5 <i class="fa-solid fa-bed"></i></div>
+                        <div>2 <i class="fa-solid fa-bath"></i></div>
+                        <div>1 <i class="fa-solid fa-couch"></i></div>
+                    </div>
+                </div>
+
+                <div class="details text-start">
+                    <div class="meta-info d-flex justify-content-between mb-2 small">
+                        <span class="status">Re Sale</span>
+                        <span class="ref">Ref : 591806</span>
+                    </div>
+                    <h3>Semi-detached 5 Bed Villa In Mavişehir with Sea View</h3>
+                    <p class="loc">Mavişehir, Didim, Aydın</p>
+                    
+                    <button class="btn btn-full w-100 py-2 mb-2">VIEW FULL DETAILS</button>
+                    <div class="row gx-2 mb-3">
+                        <div class="col-6"><button class="btn btn-offer w-100 py-2">Make An Offer</button></div>
+                        <div class="col-6"><button class="btn btn-view w-100 py-2">Arrange a Viewing</button></div>
+                    </div>
+                    
+                    <div class="footer-info text-center small">
+                        <span class="d-block mb-1"><i class="fa-regular fa-heart heart me-1"></i> Save to Shortlist</span>
+                        <a href="tel:+905325660366">+90 532 566 0366</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
